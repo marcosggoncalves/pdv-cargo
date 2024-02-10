@@ -6,8 +6,8 @@ services:
       context: ./backend
     ports:
       - "1200:1200"
-    # depends_on:
-    #   - database
+    depends_on:
+      - database
     environment:
       DB_CONNECTION: pgsql
       DB_HOST: database
@@ -24,11 +24,11 @@ services:
     depends_on:
       - backend
 
-  # database:
-  #   image: postgres:latest
-  #   environment:
-  #     POSTGRES_DB: pdv
-  #     POSTGRES_USER: pdv
-  #     POSTGRES_PASSWORD: pdv@9185
-  #   ports:
-  #     - "5432:5432"
+  database:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: pdv
+      POSTGRES_USER: pdv
+      POSTGRES_PASSWORD: pdv@9185
+    ports:
+      - "5432:5432"
