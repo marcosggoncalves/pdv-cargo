@@ -1,0 +1,814 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Teste prático - PHP",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/pedidos": {
+            "get": {
+                "tags": [
+                    "pedido"
+                ],
+                "summary": "Listar pedidos",
+                "description": "Retornar todos os pedidos",
+                "operationId": "listar_pedidos",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/pedido/{id}": {
+            "get": {
+                "tags": [
+                    "pedido"
+                ],
+                "summary": "Detalhar pedido",
+                "description": "Retornar todos os pedidos",
+                "operationId": "detalhar_pedido",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "pedido"
+                ],
+                "summary": "Excluir pedido",
+                "operationId": "excluir_pedido",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/relizar-pedido": {
+            "post": {
+                "tags": [
+                    "pedido"
+                ],
+                "summary": "Realizar novo pedido",
+                "operationId": "realizar_pedido",
+                "requestBody": {
+                    "description": "Campos para realizar o pedido",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "produtos"
+                                ],
+                                "properties": {
+                                    "produtos": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "produto_id": {
+                                                    "type": "integer"
+                                                },
+                                                "quantidade": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . "
+                    },
+                    "422": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/pedido-item/{id}": {
+            "delete": {
+                "tags": [
+                    "pedido"
+                ],
+                "summary": "Excluir item do pedido",
+                "operationId": "excluir_item_pedido",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/produtos": {
+            "get": {
+                "tags": [
+                    "produto"
+                ],
+                "summary": "Listar produtos",
+                "description": "Retornar todos os produtos",
+                "operationId": "listar_produtos",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/produtos-listagem": {
+            "get": {
+                "tags": [
+                    "produto"
+                ],
+                "summary": "Listar produtos sem paginação",
+                "description": "Retornar todos os produtos",
+                "operationId": "listar_produtos_sem_paginacao",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/produto/{id}": {
+            "get": {
+                "tags": [
+                    "produto"
+                ],
+                "summary": "Detalhar produtos",
+                "description": "Retornar todos os produtos",
+                "operationId": "detalhar_produto",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "produto"
+                ],
+                "summary": "Excluir cadastro do produto",
+                "operationId": "delete_produto",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/produto{id?}": {
+            "post": {
+                "tags": [
+                    "produto"
+                ],
+                "summary": "Cadastrar/Alterar produto",
+                "operationId": "new_produto",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Campos para cadastro",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "descricao": {
+                                        "type": "name",
+                                        "format": "text",
+                                        "example": "Amortecedor Dianteiro"
+                                    },
+                                    "valor_venda": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": 1
+                                    },
+                                    "estoque": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": 1
+                                    },
+                                    "imagens[]": {
+                                        "type": "file",
+                                        "format": "binary",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . "
+                    },
+                    "422": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/produto-excluir-imagem/{id}": {
+            "delete": {
+                "tags": [
+                    "produto"
+                ],
+                "summary": "Excluir imagem do produto",
+                "operationId": "excluir_imagem_produto",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/usuarios": {
+            "get": {
+                "tags": [
+                    "usuario"
+                ],
+                "summary": "listar_usuarios",
+                "description": "Retornar todos os cadastros",
+                "operationId": "listar_usuarios",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/usuario": {
+            "post": {
+                "tags": [
+                    "usuario"
+                ],
+                "summary": "Cadastrar Novo Usuario",
+                "operationId": "new_usuario",
+                "requestBody": {
+                    "description": "Campos para cadastros",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "email",
+                                    "password",
+                                    "nivel"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "nome",
+                                        "format": "text",
+                                        "example": "Marcos"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "marcoslopesg7@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1234"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . "
+                    },
+                    "422": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/usuario/{id}": {
+            "put": {
+                "tags": [
+                    "usuario"
+                ],
+                "summary": "Alterar cadastro do usuario",
+                "operationId": "editar_usuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Campos para cadastros",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "email",
+                                    "password",
+                                    "nivel"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "nome",
+                                        "format": "text",
+                                        "example": "Marcos"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "marcoslopesg7@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1234"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . "
+                    },
+                    "422": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "usuario"
+                ],
+                "summary": "Excluir cadastro de um usuario",
+                "operationId": "excluir_usuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/login": {
+            "post": {
+                "tags": [
+                    "login"
+                ],
+                "summary": "Efetuar login ",
+                "operationId": "login_usuario",
+                "requestBody": {
+                    "description": "Campos para cadastros",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "marcoslopesg7@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1234"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . "
+                    },
+                    "422": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                }
+            }
+        },
+        "/api/v1/login-check": {
+            "post": {
+                "tags": [
+                    "login"
+                ],
+                "summary": "Verificar Token",
+                "description": "Verificar Token",
+                "operationId": "login_usuario_check",
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "Bearer"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearer": {
+                "type": "http",
+                "description": "Authorization token obtained from logging in.",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "bearerAuth"
+            }
+        }
+    ]
+}

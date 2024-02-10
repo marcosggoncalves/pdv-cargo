@@ -1,0 +1,32 @@
+.login {
+  width: 30%;
+}
+
+.paginacaoPDV .page-item.active .page-link {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.paginacaoPDV .page-link {
+  color: #000;
+}
+
+.paginacaoPDV .page-link:hover {
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
+  color: #000;
+}
+
+.espaco-tabela-pdv {
+  margin-left: 5px;
+}
+
+.listagem-imagem-pdv {
+  width: 100%;
+}
+
+.listagem-historico-pdv {
+  height: 200px;
+  overflow: auto;
+}

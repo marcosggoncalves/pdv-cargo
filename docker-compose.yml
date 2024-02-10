@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "1200:1200"
+    # depends_on:
+    #   - database
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_DATABASE: pdv
+      DB_USERNAME: pdv
+      DB_PASSWORD: pdv@9185
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:3000"
+    depends_on:
+      - backend
+
+  # database:
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_DB: pdv
+  #     POSTGRES_USER: pdv
+  #     POSTGRES_PASSWORD: pdv@9185
+  #   ports:
+  #     - "5432:5432"
