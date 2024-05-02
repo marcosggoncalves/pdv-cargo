@@ -11,7 +11,7 @@ class Pedido extends Model
 
     protected $table = 'pedido';
 
-    protected $fillable = ['data_pedido', 'situacao'];
+    protected $fillable = ['data_pedido', 'total', 'situacao'];
 
     protected $hidden = ['created_at', 'updated_at'];
 

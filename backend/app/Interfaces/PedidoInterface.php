@@ -8,7 +8,7 @@ interface PedidoInterface
 {
     public function buscarPorId(int $id);
 
-    public function buscarPedidoProduto(int $pedidoId, int $produtoId);
+    public function buscarProdutoPedido(int $pedidoId, int $produtoId);
 
     public function pedidos();
 

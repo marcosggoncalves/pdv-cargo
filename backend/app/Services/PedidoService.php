@@ -22,7 +22,7 @@ class PedidoService
 
     private function verificarProdutoPedido($pedidoID, $produto)
     {
-        $produtoPedidoVerificar = $this->repository->buscarPedidoProduto($pedidoID, $produto['produto_id']);
+        $produtoPedidoVerificar = $this->repository->buscarProdutoPedido($pedidoID, $produto['produto_id']);
 
         if ($produtoPedidoVerificar) {
 

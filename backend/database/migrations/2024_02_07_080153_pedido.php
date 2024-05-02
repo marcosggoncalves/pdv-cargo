@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('pedido', function (Blueprint $table) {
             $table->id();
             $table->date('data_pedido')->default(now());
+            $table->decimal('total', $precision = 8, $scale = 2)->default(0);
             $table->string('situacao', 25)->default('Aberto');
             $table->timestamps();
         });

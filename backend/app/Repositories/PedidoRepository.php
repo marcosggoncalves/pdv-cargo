@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\PedidoInterface;
 use App\Models\Pedido;
-use App\Models\PedidoProduto;
+use App\Models\ProdutoPedido;
 
 class PedidoRepository implements PedidoInterface
 {
@@ -13,9 +13,9 @@ class PedidoRepository implements PedidoInterface
         return Pedido::findOrFail($id);
     }
 
-    public function buscarPedidoProduto($pedidoId, $produtoId)
+    public function buscarProdutoPedido($pedidoId, $produtoId)
     {
-        return PedidoProduto::where('pedido_id', $pedidoId)->where('produto_id', $produtoId)->first();
+        return ProdutoPedido::where('pedido_id', $pedidoId)->where('produto_id', $produtoId)->first();
     }
 
     public function pedidos()
@@ -46,7 +46,7 @@ class PedidoRepository implements PedidoInterface
 
     public function excluirItemPedido(int $id)
     {
-        $pedidoItem = PedidoProduto::findOrFail($id);
+        $pedidoItem = ProdutoPedido::findOrFail($id);
 
         $pedidoItem->delete();
 
