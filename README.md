@@ -1,11 +1,3 @@
-Claro, aqui está um guia básico para ajudá-lo a escrever um README para sua aplicação Docker. Este README incluirá instruções sobre como iniciar e parar os contêineres Docker, bem como executar comandos específicos dentro de um contêiner.
-
----
-
-# Guia de Uso para a Aplicação Docker PDV Cargo
-
-Este guia fornece instruções sobre como iniciar, parar e executar comandos dentro dos contêineres Docker para a aplicação PDV Cargo.
-
 ## Iniciando a Aplicação
 
 Para iniciar a aplicação, siga estes passos:
