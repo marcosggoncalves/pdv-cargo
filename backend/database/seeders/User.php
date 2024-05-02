@@ -17,10 +17,10 @@ class User extends Seeder
     {
         $data =  date('Y-m-d H:i:s');
 
-        DB::table('users')->insert([
+        DB::table('usuario')->insert([
             [
-                'name' => 'Marcos',
-                'password' => Hash::make('ti@9185'),
+                'nome' => 'Marcos',
+                'password' => Hash::make('teste@123'),
                 'email' => 'marcoslopesg7@gmail.com',
                 'created_at' =>  $data,
                 'updated_at' =>  $data

@@ -8,13 +8,6 @@ services:
       - "1200:1200"
     depends_on:
       - database
-    environment:
-      DB_CONNECTION: pgsql
-      DB_HOST: database
-      DB_PORT: 5432
-      DB_DATABASE: pdv
-      DB_USERNAME: pdv
-      DB_PASSWORD: pdv@9185
 
   frontend:
     build:
