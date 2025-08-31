@@ -1,3 +1,7 @@
+# Aplicação PDV PHP(Laravel) e ReactJS
+
+Aplicação simples desenvolvido com laravel e reactjs com boostrap.
+
 ## Iniciando a Aplicação
 
 Para iniciar a aplicação, siga estes passos:
@@ -54,6 +58,24 @@ Isso executará os comandos PHP Artisan necessários dentro do contêiner.
 - **E-mail:** marcoslopesg7@gmail.com
 - **Senha:** teste@123
 
-## Observações
+ ## Tela 1 - Login
+![Painel da Aplicação - TELA 1](https://github.com/marcosggoncalves/pdv-cargo/blob/master/prints/login.png)
 
-Certifique-se de ter as dependências necessárias instaladas, como Docker e Docker Compose, antes de tentar iniciar a aplicação.
+ ## Tela 2 - Painel
+![Painel da painel - TELA 1](https://github.com/marcosggoncalves/pdv-cargo/blob/master/prints/painel.png)
+
+ ## Tela 3 - Pedidos
+![Painel da painel - TELA 1](https://github.com/marcosggoncalves/pdv-cargo/blob/master/prints/pedidos.png)
+
+ ## Tela 4 - Detalhar Pedido
+![Painel da painel - TELA 1](https://github.com/marcosggoncalves/pdv-cargo/blob/master/prints/detalharpedido.png)
+
+ ## Tela 5 - Produtos
+![Painel da painel - TELA 1](https://github.com/marcosggoncalves/pdv-cargo/blob/master/prints/produtos.png)
+
+ ## Tela 6 - Ficha Cadastral Produto
+![Painel da painel - TELA 1](https://github.com/marcosggoncalves/pdv-cargo/blob/master/prints/fichaproduto.png)
+
+ ## Tela 7 - Usuários
+![Painel da painel - TELA 1](https://github.com/marcosggoncalves/pdv-cargo/blob/master/prints/usuarios.png)
+
